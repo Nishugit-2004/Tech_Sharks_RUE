@@ -2,6 +2,8 @@
 
 RUE is a full-stack web application designed for deep conceptual learning through recursive exploration. It doesn't just answer questions; it breaks down the answers into key conceptual terms, allowing users to explore each term recursively until full clarity is achieved.
 
+<img width="650" height="850" alt="Image" src="https://github.com/user-attachments/assets/107cc2a5-c25d-47cf-b2b9-fc0eac79932f" />
+
 ## Features
 - **Intelligent Answers**: Driven by Groq's Llama 3.3 70B (Ultra-fast inference).
 - **Automated Concept Extraction**: Smartly identifies difficult or core terms within text and highlights them.
