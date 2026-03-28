@@ -1,0 +1,300 @@
+{
+  "project": {
+    "name": "CUROMINDS",
+    "description": "Recursive Understanding Engine - AI-powered learning platform for deep conceptual exploration",
+    "version": "1.0.0",
+    "type": "Full-Stack Web Application",
+    "architecture": "Client-Server with LLM Integration"
+  },
+  "tech_stack": {
+    "frontend": {
+      "framework": "React 19.2.4",
+      "build_tool": "Vite 8.0.1",
+      "styling": "Tailwind CSS 4.2.2",
+      "animations": "Framer Motion 12.38.0",
+      "icons": "Lucide React 1.7.0",
+      "http_client": "Axios 1.13.6",
+      "routing": "React Router DOM 7.13.2",
+      "visualization": "@xyflow/react 12.10.2"
+    },
+    "backend": {
+      "framework": "FastAPI",
+      "server": "Uvicorn",
+      "database_driver": "Motor (Async MongoDB)",
+      "validation": "Pydantic",
+      "llm_providers": [
+        "Google GenAI",
+        "Groq"
+      ],
+      "environment": "Python-dotenv"
+    },
+    "database": {
+      "type": "MongoDB",
+      "driver": "Motor",
+      "connection": "mongodb://localhost:27017 or MONGO_URI env variable"
+    }
+  },
+  "features": {
+    "core": [
+      "LLM-Powered Explanations",
+      "Recursive Concept Decomposition",
+      "Per-Layer Difficulty Control",
+      "Interactive Concept Mapping",
+      "Mastery Verification System",
+      "Session Management",
+      "Learning Path Recommendations"
+    ],
+    "ui_components": [
+      "History Panel (Fixed Top-Left)",
+      "Level Selector (Global & Per-Layer)",
+      "NodeViewer (Recursive Display)",
+      "Conceptual Map Visualization",
+      "AnswerBlock with Highlighting",
+      "Chat History",
+      "Exit Button (Bottom-Right)"
+    ],
+    "learning_levels": [
+      {
+        "name": "Beginner",
+        "color": "Emerald Green",
+        "style": "Simple language, analogies, minimal math"
+      },
+      {
+        "name": "Intermediate",
+        "color": "Amber Yellow",
+        "style": "Key principles and examples"
+      },
+      {
+        "name": "Advanced",
+        "color": "Violet Purple",
+        "style": "Theory, formulas, technical explanations"
+      }
+    ]
+  },
+  "api_endpoints": {
+    "ask": {
+      "method": "POST",
+      "url": "/ask",
+      "description": "Submit initial query and get foundational answer",
+      "payload": {
+        "query": "string",
+        "level": "Beginner|Intermediate|Advanced"
+      },
+      "response": {
+        "session_id": "string",
+        "node": "NodeData"
+      }
+    },
+    "explain": {
+      "method": "POST",
+      "url": "/explain",
+      "description": "Deep dive into specific concepts",
+      "payload": {
+        "session_id": "string",
+        "terms": "array",
+        "parent_node_id": "string",
+        "context": "string",
+        "level": "string"
+      },
+      "response": {
+        "node": "NodeData"
+      }
+    },
+    "verify": {
+      "method": "POST",
+      "url": "/verify",
+      "description": "Verify user understanding for mastery",
+      "payload": {
+        "term": "string",
+        "explanation": "string",
+        "context": "string"
+      },
+      "response": {
+        "status": "MASTERED|LEARNING|NEEDS_WORK",
+        "feedback": "string"
+      }
+    }
+  },
+  "data_structures": {
+    "Node": {
+      "id": "string (unique identifier)",
+      "term": "string (concept name)",
+      "content": "string (explanation)",
+      "concepts": "array of extracted sub-concepts",
+      "mastered": "boolean",
+      "context_id": "string (optional)"
+    },
+    "Concept": {
+      "term": "string",
+      "context_id": "string (optional)"
+    },
+    "Session": {
+      "session_id": "string",
+      "rootNode": "Node",
+      "history": "array of nodes"
+    }
+  },
+  "file_structure": {
+    "root": {
+      "RUE/": {
+        "backend/": {
+          "main.py": "FastAPI application entry point",
+          "database.py": "MongoDB connection and operations",
+          "models.py": "Pydantic schemas for data validation",
+          "llm_service.py": "LLM integration and prompt engineering",
+          "requirements.txt": "Python dependencies",
+          ".env": "Environment variables (GEMINI_API_KEY, MONGO_URI)"
+        },
+        "frontend/": {
+          "src/": {
+            "App.jsx": "Main application component",
+            "main.jsx": "React entry point",
+            "index.css": "Global styles and Tailwind config",
+            "components/": {
+              "NodeViewer.jsx": "Recursive node display with all features",
+              "AnswerBlock.jsx": "Content rendering with highlighting",
+              "ConceptualMap.jsx": "Visual knowledge graph",
+              "HistoryPanel.jsx": "Fixed sidebar search history",
+              "LevelSelector.jsx": "Difficulty level toggle",
+              "ChatContainer.jsx": "Chat interface",
+              "ChatSession.jsx": "Individual chat session",
+              "ChatHistory.jsx": "Historical conversations"
+            }
+          },
+          "public/": {
+            "favicon.svg": "App icon",
+            "icons.svg": "Icon sprites"
+          },
+          "package.json": "Frontend dependencies",
+          "vite.config.js": "Vite build configuration",
+          "index.html": "HTML template"
+        },
+        "README.md": "Project documentation",
+        "pitch_deck.md": "Presentation material",
+        "setup.bat": "Windows setup script",
+        "start.bat": "Windows startup script"
+      }
+    }
+  },
+  "configuration": {
+    "frontend": {
+      "dev_server": "http://localhost:5173",
+      "production_build": "npm run build",
+      "output_dir": "dist",
+      "api_url": "http://localhost:8000"
+    },
+    "backend": {
+      "dev_server": "http://localhost:8000",
+      "reload": true,
+      "cors_enabled": true,
+      "async_runtime": "asyncio"
+    }
+  },
+  "ui_specifications": {
+    "theme": {
+      "mode": "Dark",
+      "primary_colors": ["Teal", "Cyan"],
+      "accent_colors": ["Emerald", "Amber", "Violet"],
+      "background": "Slate-950 with glass effects",
+      "effects": [
+        "Glassmorphism",
+        "Gradient blobs",
+        "Backdrop blur",
+        "Smooth transitions"
+      ]
+    },
+    "layout": {
+      "container": "max-w-5xl centered",
+      "history_panel": {
+        "position": "fixed top-4 left-4",
+        "width": "256px",
+        "height": "calc(100vh - 2rem)",
+        "responsive": "Floating button on mobile"
+      },
+      "main_content": {
+        "padding_left_desktop": "sm:pl-72",
+        "centered": true,
+        "spacing": "pt-10 pb-32"
+      }
+    }
+  },
+  "user_flow": {
+    "steps": [
+      "1. User enters complex topic query",
+      "2. System generates foundational explanation with extracted concepts",
+      "3. User sees highlighted terms and learning path recommendations",
+      "4. User can click any concept to recursively explore deeper",
+      "5. Each layer has independent level selector",
+      "6. User can verify understanding for mastery badges",
+      "7. Exit anytime to start new query",
+      "8. All queries saved in history panel"
+    ]
+  },
+  "pedagogical_rules": {
+    "explanation_structure": "Foundational → Advanced concepts",
+    "adaptive_difficulty": "Per-layer level selection",
+    "recursive_decomposition": "5-10 sub-concepts per node",
+    "concept_extraction": "Automatic term highlighting",
+    "mastery_verification": "User explains, AI evaluates",
+    "learning_path": "Suggested sequential order"
+  },
+  "scripts": {
+    "setup": "cd RUE && .\\setup.bat",
+    "start": "cd RUE && .\\start.bat",
+    "frontend_dev": "cd frontend && npm run dev",
+    "frontend_build": "cd frontend && npm run build",
+    "backend_dev": "cd backend && uvicorn main:app --reload",
+    "install_frontend": "cd frontend && npm install",
+    "install_backend": "cd backend && pip install -r requirements.txt"
+  },
+  "environment_variables": {
+    "required": [
+      "GEMINI_API_KEY=your_google_ai_key",
+      "MONGO_URI=mongodb://localhost:27017 or Atlas URI"
+    ],
+    "optional": [
+      "GROQ_API_KEY=for_groq_llm_fallback"
+    ]
+  },
+  "dependencies_summary": {
+    "total_frontend_packages": 12,
+    "total_backend_packages": 9,
+    "key_integrations": [
+      "Google Gemini API",
+      "MongoDB Atlas/Local",
+      "Vite HMR",
+      "Tailwind CSS V4"
+    ]
+  },
+  "performance_features": {
+    "async_operations": "All backend calls are non-blocking",
+    "caching": "localStorage for history persistence",
+    "optimizations": [
+      "React.memo for components",
+      "Debounced API calls",
+      "Lazy loading for maps",
+      "Virtual scrolling ready"
+    ]
+  },
+  "accessibility": {
+    "keyboard_navigation": true,
+    "screen_reader_support": true,
+    "aria_labels": "On interactive elements",
+    "focus_management": "Proper tab order",
+    "color_contrast": "WCAG AA compliant"
+  },
+  "responsive_design": {
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px"
+    },
+    "mobile_optimizations": [
+      "Collapsible history drawer",
+      "Touch-friendly buttons",
+      "Optimized font sizes",
+      "Reduced animations"
+    ]
+  }
+}
