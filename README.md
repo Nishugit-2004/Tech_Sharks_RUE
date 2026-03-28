@@ -4,6 +4,8 @@ RUE is a full-stack web application designed for deep conceptual learning throug
 
 <img width="650" height="850" alt="Image" src="https://github.com/user-attachments/assets/107cc2a5-c25d-47cf-b2b9-fc0eac79932f" />
 
+<img width="1109" height="771" alt="Image" src="https://github.com/user-attachments/assets/def14559-f581-496f-868a-ac7bba13a6d1" />
+
 ## Features
 - **Intelligent Answers**: Driven by Groq's Llama 3.3 70B (Ultra-fast inference).
 - **Automated Concept Extraction**: Smartly identifies difficult or core terms within text and highlights them.
