@@ -2,7 +2,7 @@
 
 RUE is a full-stack web application designed for deep conceptual learning through recursive exploration. It doesn't just answer questions; it breaks down the answers into key conceptual terms, allowing users to explore each term recursively until full clarity is achieved.
 
-Results: 
+**Outcomes** : 
 
 <img width="650" height="850" alt="Image" src="https://github.com/user-attachments/assets/107cc2a5-c25d-47cf-b2b9-fc0eac79932f" />
 
